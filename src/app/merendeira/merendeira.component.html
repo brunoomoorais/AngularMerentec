@@ -1,0 +1,52 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<main>
+  <section class="container">
+    <div class="user-header">
+      <h2>Pratos</h2>
+    </div>
+    <hr>
+    <div class="pts">
+      <div *ngFor="let prato of getList(), index as i">
+        <div class="box">
+          <img src="https://i.imgur.com/KFRWLoV.jpg" alt="...">
+          <div class="texto">
+            <h3>{{prato.nome}}</h3>
+            <p>{{prato.descricao}}</p>
+            <table>
+              <tr>
+                <td>Peso: {{prato.peso}}</td>
+                <td>Fíbras: {{prato.fibra}}</td>
+                <td>Proteínas: {{prato.proteina}}</td>
+              </tr>
+              <tr>
+                <td>Carboidrato: {{prato.carboidrato}}</td>
+                <td>Sódio: {{prato.sodio}}</td>
+                <td>Valor Energ.: {{prato.valorEnergetico}}</td>
+              </tr>
+              <tr>
+                <td>G. Trans: {{prato.gorduraTrans}}</td>
+                <td>G. Saturada: {{prato.gorduraSaturada}}</td>
+                <td>G. Total: {{prato.gorduraTotal}}</td>
+              </tr>
+            </table>
+            <div class="botao">
+              <form METHOD="POST">
+                <button (click)="this.editar(i)">Editar</button>
+                <button (click)="this.remover(i)">Remover</button>
+              </form>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <button class="adicionar" [routerLink]="['/cadastro']">Adicionar Prato</button>
+    <div class="clear"></div>
+    <div class="divCentral" [ngStyle]="{'visibility': display}">
+      <div class="loader"></div>
+    </div>
+  </section>
+  <br><br>
+</main>

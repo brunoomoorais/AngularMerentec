@@ -1,0 +1,34 @@
+<header>
+  <div class="container">
+    <h1>Merentec</h1>
+  </div>
+</header>
+
+<main>
+  <section>
+    <form action="#" method="POST">
+      <img src="https://i.ibb.co/YB6516t/login.png" alt="login">
+      <div class="circle">
+        <h2>MTC</h2>
+      </div>
+      <div class="campos box-container">
+        <input type="text" name="usuario" id="usuario" placeholder="Usuário" [(ngModel)]="login">
+        <input type="password" name="senha" id="senha" placeholder="Senha" [(ngModel)]="senha">
+        <!-- mensagem de erro -->
+        <p class="erro">{{error}}</p>
+
+        <button (click)="singIn()">Entrar</button>
+      </div>
+      <div class="recuperar"><a>Esqueceu sua senha?</a></div>
+      <div class="rodape">
+        <a>
+          Merentec - Todos os direitos reservados
+        </a>
+        <p>Desenvolvido por BLLV</p>
+      </div>
+    </form>
+  </section>
+  <div class="divCentral" [ngStyle]="{'visibility': display}">
+    <div class="loader"></div>
+  </div>
+</main>

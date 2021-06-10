@@ -1,0 +1,86 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<main>
+  <div class="geral">
+    <form action="#" method="POST">
+      <h2>Editar Prato</h2>
+      <hr>
+      <div class="nome">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" [(ngModel)]="nome">
+      </div>
+
+      <!-- <div class="arquivo">
+        <label for="arquivo">Imagem do Prato:</label>
+        <input type="file" name="arquivo" id="arquivo">
+      </div> -->
+
+      <div class="descricao">
+        <label for="descricao">Descrição:</label>
+        <textarea name="descricao" id="descricao" [(ngModel)]="descricao"></textarea>
+      </div>
+
+      <div class="campo02">
+        <div class="input">
+          <label for="peso">Peso:</label>
+          <input type="number" name="peso" id="peso" [(ngModel)]="peso">
+        </div>
+
+        <div class="input">
+          <label for="carboidrato">Carboidrato:</label>
+          <input type="number" name="carboidrato" id="carboidrato" [(ngModel)]="carboidrato">
+        </div>
+
+        <div class="input">
+          <label for="proteinas">Proteínas:</label>
+          <input type="number" name="proteinas" id="proteinas" [(ngModel)]="proteina">
+        </div>
+      </div>
+
+      <div class="campo03">
+        <div class="input">
+          <label for="sodio">Sódio:</label>
+          <input type="number" name="sodio" id="sodio" [(ngModel)]="sodio">
+        </div>
+
+        <div class="input">
+          <label for="fibra">Fíbra:</label>
+          <input type="number" name="fibra" id="fibra" [(ngModel)]="fibra">
+        </div>
+
+        <div class="input">
+          <label for="valorEnergetico">Valor Energético:</label>
+          <input type="number" name="valorEnergetico" id="valorEnergetico" [(ngModel)]="valorEnergetico">
+        </div>
+      </div>
+
+      <div class="campo04">
+        <div class="input">
+          <label for="gorduraTrans">Gordura Trans:</label>
+          <input type="number" name="gorduraTrans" id="gorduraTrans" [(ngModel)]="gorduraTrans">
+        </div>
+
+        <div class="input">
+          <label for="gorduraSaturada">Gordura Saturada:</label>
+          <input type="number" name="gorduraSaturada" id="gorduraSaturada" [(ngModel)]="gorduraSaturada">
+        </div>
+
+        <div class="input">
+          <label for="gorduraTotal">Gordura Total:</label>
+          <input type="number" name="gorduraTotal" id="gorduraTotal" [(ngModel)]="gorduraTotal">
+        </div>
+      </div>
+
+      <hr>
+      <div class="botao">
+        <button (click)="atualizar()">Enviar</button>
+      </div>
+    </form>
+
+    <img src="https://i.imgur.com/cDLBgbc.jpg" alt="...">
+  </div>
+  <div class="divCentral" [ngStyle]="{'visibility': display}">
+    <div class="loader"></div>
+  </div>
+</main>
+<br><br>

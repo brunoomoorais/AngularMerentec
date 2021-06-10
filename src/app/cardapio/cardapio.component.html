@@ -1,0 +1,55 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+
+<main>
+  <div class="container-fluid" *ngIf="this.situation == 'cardapio'">
+    <h2>Cardápio</h2>
+    <hr>
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th style="border-right: 1px solid white; border-radius: 5px 0 0 0;">Data</th>
+            <th>Nome do prato</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cardapio of this.cardapioService.listCardapioAll, index as i">
+            <td>
+              {{getDate(cardapio.data)}}
+            </td>
+            <td>
+              {{cardapio.prato.nome}}
+            </td>
+            <td>
+              <button (click)="remover(i)">Remover</button>
+            </td>
+          </tr>
+
+          <tr *ngIf="this.cardapioService.listCardapioAll.length == 0">
+            <td><b>Não há pratos cadastrados</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button class="adicionar" (click)="adicionarPrato()">Adicionar Prato</button>
+  </div>
+
+  <div class="container-fluid" *ngIf="this.situation == 'adicionar'">
+    <h2>Adicionar Prato</h2>
+    <p></p>
+    <hr>
+    <h5>Prato:</h5>
+    <select [(ngModel)]="prato">
+      <option *ngFor="let prato of this.pratoService.listPrato, index as i" value="{{prato.id}}">{{prato.nome}}</option>
+    </select>
+    <h5>Dia da semana:</h5>
+    <input [(ngModel)]="date" type="date">
+    <button class="adicionar" (click)="adicionar()" style="margin-left: 8px;">Adicionar</button>
+    <button class="adicionar" (click)="retornar();">Retornar</button>
+  </div>
+  <br><br><br><br><br>
+  <div class="divCentral" [ngStyle]="{'visibility': display}">
+    <div class="loader" style="margin: 60% auto"></div>
+  </div>
+</main>

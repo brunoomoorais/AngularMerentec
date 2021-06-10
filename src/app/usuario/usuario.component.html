@@ -1,0 +1,65 @@
+<app-header></app-header>
+<main>
+  <section class="container">
+    <div class="user-header">
+      <h2>Pratos da Semana</h2>
+    </div>
+    <hr>
+    <div class="pts">
+      <div *ngFor="let prato of getList(); index as i">
+        <div class="box">
+          <img src="https://i.imgur.com/KFRWLoV.jpg" alt="...">
+          <div class="texto">
+            <div class="data">
+              <p>{{getDate(prato.data)}}</p>
+            </div>
+            <h3>{{prato.prato.nome}}</h3>
+            <p>{{prato.prato.descricao}}</p>
+            <table [ngStyle]="{'display': listDisplay[i].det}">
+              <tr>
+                <td>Peso: {{prato.prato.peso}}</td>
+                <td>Fíbras: {{prato.prato.fibra}}</td>
+                <td>Proteínas: {{prato.prato.proteina}}</td>
+              </tr>
+            </table>
+            <table [ngStyle]="{'display': listDisplay[i].basic}">
+              <tr>
+                <td>Peso: {{prato.prato.peso}}</td>
+                <td>Fíbras: {{prato.prato.fibra}}</td>
+                <td>Proteínas: {{prato.prato.proteina}}</td>
+              </tr>
+              <tr>
+                <td>Carboidrato: {{prato.prato.carboidrato}}</td>
+                <td>Sódio: {{prato.prato.sodio}}</td>
+                <td>Valor Energ.: {{prato.prato.valorEnergetico}}</td>
+              </tr>
+              <tr>
+                <td>G. Trans: {{prato.prato.gorduraTrans}}</td>
+                <td>G. Saturada: {{prato.prato.gorduraSaturada}}</td>
+                <td>G. Total: {{prato.prato.gorduraTotal}}</td>
+              </tr>
+            </table>
+            <div class="botao">
+              <form action="#" method="PUT">
+                <button *ngIf="!reservado(i) && verifyTime(i, prato.data)" (click)="alerta()" style="background-color: #a0aec0">Reservar</button>
+
+                <button *ngIf="!reservado(i) && !verifyTime(i, prato.data)" (click)="reservar(prato.data)">Reservar</button>
+
+                <button *ngIf="reservado(i) && verifyTime(i, prato.data)" (click)="alerta()" style="background-color: #a0aec0">Cancelar</button>
+
+                <button *ngIf="reservado(i) && !verifyTime(i, prato.data)" (click)="cancelar(prato.data)" style="background-color: #2d3748">Cancelar</button>
+
+                <button [ngStyle]="{'display': listDisplay[i].det}" class="detalhes" (click)="appear(i)">Mais detalhes</button>
+                <button [ngStyle]="{'display': listDisplay[i].basic}" class="detalhes" (click)="appear(i)">Menos detalhes</button>
+              </form>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="divCentral" [ngStyle]="{'visibility': display}">
+    <div class="loader"></div>
+  </div>
+</main>
