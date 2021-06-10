@@ -11,6 +11,8 @@
           <tr>
             <th style="border-right: 1px solid white; border-radius: 5px 0 0 0;">Data</th>
             <th>Nome do prato</th>
+            <th style="border-left: 1px solid white;">Quantidade</th>
+            <th style="border-left: 1px solid white; border-radius: 0 5px 0 0;"></th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +22,9 @@
             </td>
             <td>
               {{cardapio.prato.nome}}
+            </td>
+            <td>
+              {{cardapio.usuario.length}} Aluno(s)
             </td>
             <td>
               <button (click)="remover(i)">Remover</button>
